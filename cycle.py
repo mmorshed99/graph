@@ -29,8 +29,6 @@ def isCyclic(n, graph):
         return 0
     for i in list(graph):
         if visited[i] == 0:
-            #visited[i] = 1
-            #mystack[i] = 1
             if iscycle(i,visited,mystack):
                 return 1
     return 0
