@@ -1,4 +1,20 @@
-def solve(self, A, B, C, D, E, F):
+#There is a rectangle with left bottom as  (0, 0) and right up as (x, y). There are N circles such that their centers are inside the rectangle. Radius of each circle is R. Now we need to find out if it is possible that we can move from (0, 0) to (x, y) without touching any circle.
+#Note : We can move from any cell to any of its 8 adjecent neighbours and we cannot move outside the boundary of the rectangle at any point of time.
+#
+#Constraints
+# 0 <= x , y , R <= 100  
+# 1 <= N <= 1000 
+#Center of each circle would lie within the grid
+#
+#Input
+#Input contains x, y , N , R  and two array of size N containing centers of circles.
+#The ith index of first array contains x co-ordinate of the ith circle and ith index of second array contains the y co-ordinate of the ith circle.
+#
+#Output 
+#YES or NO depending on weather it is possible to reach cell  (x,y) or not starting from (0,0).
+#
+#
+def solve(A, B, C, D, E, F):
         def find_blockage(A,B,C,D,E,F):
             block_arr = []
             for i in range(A+1):
@@ -82,6 +98,7 @@ def solve(self, A, B, C, D, E, F):
         if block_arr[0][0]:
             curr_points.append([0,0])
         while(len(curr_points) != 0):
+                #print(curr_points)
                 next_points = []
                 for i in range(len(curr_points)):
                     visited[curr_points[i][0]][curr_points[i][1]] = 1
