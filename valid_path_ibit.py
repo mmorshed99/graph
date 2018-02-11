@@ -69,6 +69,7 @@ def solve(self, A, B, C, D, E, F):
                   if temp_x[i] >= 0 and temp_x[i] <= A and temp_y[i] >= 0 and temp_y[i]<= B: 
                     if block_arr[temp_x[i]][temp_y[i]] and not visited[temp_x[i]][temp_y[i]]:
                         temp.append([temp_x[i],temp_y[i]])
+                        visited[temp_x[i]][temp_y[i]] = 1
                 return temp,visited
                 
         curr_points = []
