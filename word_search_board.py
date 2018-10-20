@@ -50,3 +50,49 @@ class Solution:
             if find_pattern(curr_idx+1,curr_search_idx,B_split,list_2d):
                 return 1
         return 0
+    
+    #############look at this #####
+    class Solution:
+    # @param A : list of strings
+    # @param B : string
+    # @return an integer
+    def exist(self, A, B):
+        for i in range(len(A)):
+            for j in range(len(A[i])):
+                if A[i][j] == B[0]:
+                    if len(B) == 1:
+                        return 1
+                    stack = []
+                    stack.append([i,j])
+                    curr = 0
+                    while(len(stack) > 0 and curr < len(B)):
+                        temp_stack = []
+                        for k in range(len(stack)):
+                            if A[stack[k][0]][stack[k][1]] == B[curr]:
+                                print(stack[k][0])
+                                print(stack[k][1])
+                                if curr == len(B) -1 :
+                                    return 1
+                                x = stack[k][0]
+                                y = stack[k][1]
+                                if x == len(A) - 1:
+                                    temp_stack.append([0,y])
+                                else:
+                                    temp_stack.append([x+1,y])
+                                if x == 0:
+                                    temp_stack.append([len(A)-1,y])
+                                else:
+                                    temp_stack.append([x-1,y])
+                                if y == len(A[stack[k][0]]) - 1:
+                                    temp_stack.append([x,0])
+                                else:
+                                    temp_stack.append([x,y+1])
+                                if y == 0:
+                                    temp_stack.append([x,len(A[stack[k][0]])-1])
+                                else:
+                                    temp_stack.append([x,y-1])
+                        stack = temp_stack[:]
+                        curr += 1
+        return 0
+                                
+
